@@ -57,25 +57,26 @@ void main() {
 
     influence = influenceA + influenceB + influenceC + influenceD + influenceE;
 
-    if (influence > 0.7 && influence < 1) {
-        //#C3E8FE
-        vec4 color1 = vec4(0.76, 0.91, 0.99, 1.0);
-        //#88D6BA
-        vec4 color2 = vec4(0.53, 0.84, 0.73, 1.0);
-
-        float ratio = influenceA / influence;
-        fragColor = mix(color1,color2,ratio) * ubuf.qt_Opacity;
-        return;
-    } else if ( influence > 1) {
+    if ( influence > 1.5) {
         //#88D6BA 
         vec4 color1 = vec4(0.53, 0.84, 0.73, 1.0);
         //#274B5D
         vec4 color2 = vec4(0.15, 0.29, 0.36, 1.0);
 
         float ratio = influenceA;
-        // fragColor = vec4(0.15, 0.29, 0.36, 1.0) * ubuf.qt_Opacity;
+        // fragColor = mix(color1,color2,ratio) * ubuf.qt_Opacity;
         // return;
-    } 
+    } else if (influence > 0.7 && influence < 1) {
+        //#C3E8FE
+        vec4 color1 = vec4(0.76, 0.91, 0.99, 1.0);
+        //#88D6BA
+        vec4 color2 = vec4(0.53, 0.84, 0.73, 1.0);
+
+        float ratio = influenceA / influence;
+        // fragColor = color1 * ubuf.qt_Opacity;
+        fragColor = mix(color1,color2,ratio) * ubuf.qt_Opacity;
+        return;
+    }
 
     fragColor = texture(source, qt_TexCoord0) * ubuf.qt_Opacity;
 

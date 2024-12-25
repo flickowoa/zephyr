@@ -9,6 +9,8 @@ module = []
 
 [theme]
 config = "theme.conf"
+load = "load.sh"
+unload = "unload.sh"
 
 [[link]]
 from = "quickshell/shell/starship.toml"
