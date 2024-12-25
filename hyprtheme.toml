@@ -1,8 +1,8 @@
 name = "zephyr"
 desc = "lines!"
 version = "0.1.0"
-author = "flick0"
-repo = "https://github.com/flick0/dotfiles"
+author = "flickowoa"
+repo = "https://github.com/flickowoa/dotfiles"
 branch = "zephyr"
 enabled = true
 module = []
